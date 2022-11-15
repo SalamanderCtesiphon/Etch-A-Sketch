@@ -15,15 +15,42 @@
         </div>
         <div class="main">
             <div class="sub-header">
-                <input type="text">
+                <input type="text"  class="input" placeholder="Enter a number">
                 <button>Change Grid Size</button>
             </div>
             <div class="container">
                 <div class="canvas"></div>
             </div>
-            <div class="sub-footer"></div>
+            <h3>Select a Color</h3>
+            <div class="sub-footer">
+                <div class="btn">
+                <input type="radio" id="black" name="color_type" value="black">
+                <br>
+                <label for="Black">Black</label>
+                </div>
+                <div class="btn">
+                <input type="radio" id="shade" name="color_type" value="shade">
+                <br>
+                <label for="shade">Shade</label>
+                </div>
+                <div class="btn">
+                <input type="radio" id="random" name="color_type" value="random">
+                <br>
+                <label for="random">Random</label>
+                </div>
+                <div class="btn">
+                <input type="radio" id="erase" name="color_type" value="erase">
+                <br>
+                <label for="erase">Erase</label>
+                </div>
+            </div>
+            <div class="clear-btn">
+                <button class="clear">Clear</button>
+            </div>
         </div>
-        <div class="footer"></div>
+        <div class="footer">
+            SeamusQuixote &copy; 2021
+        </div>
     </div>
     
 </body>
