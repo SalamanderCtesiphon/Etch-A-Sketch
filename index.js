@@ -1,12 +1,22 @@
-const canvas = document.querySelector('canvas');
-let userInput = 16;
 
-function createDivs(userInput) {
-  for (let i = 0; i < (userInput**2); i++) {
-    const div = document.createElement('div');
-    div.classList.add('box');
-    canvas.appendChild(div);
-  }
+
+
+// a method to populate the container
+function populateBoard (size) {
+    let canvas = document.querySelector('.canvas');
+    let squares = canvas.querySelectorAll('div');
+    squares.forEach((div) => div.remove());
+    canvas.style.gridTemplateColumns = `repeat(${size} , 1fr)`;
+    canvas.style.gridTemplateRows = `repeat(${size} , 1fr)`;
+
+    let amount = size * size;
+    for (let i = 0; i < amount; i++) {
+        let square = document.createElement('div');
+        //square.addEventListener('mouseover', colorSquare)
+        square.style.backgroundColor = 'whitesmoke';
+        canvas.insertAdjacentElement('beforeend', square);
+    }
+
 }
 
-createDivs(16);
+populateBoard(16);
