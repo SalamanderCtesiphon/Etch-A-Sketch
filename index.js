@@ -42,7 +42,56 @@ function colorSquare (e) {
         e.target.style.backgroundColor = shader();
     } else if (color === 'random') {
         e.target.style.backgroundColor = randomColor();
-    } else if (color === 'eraser') {
+    } else if (color === 'erase') {
         e.target.style.backgroundColor = 'whitesmoke';
     }
 }
+
+// a function to shade the squares stopping at black
+
+function shader () {
+    let color = window.getComputedStyle(event.target).backgroundColor;
+    let rgb = color.match(/\d+/g);
+    let r = rgb[0];
+    let g = rgb[1];
+    let b = rgb[2];
+    if (r > 0 && g > 0 && b > 0) {
+        r -= 25;
+        g -= 25;
+        b -= 25;
+    }
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+// function to clear the board
+const clearBtn = document.querySelector('.clear');
+clearBtn.addEventListener('click', () => {
+    let squares = document.querySelectorAll('.canvas div');
+    squares.forEach((div) => div.style.backgroundColor = 'whitesmoke');
+});
+
+    
+
+
+
+
+
+//create a function that colors the square with a random color using an event listener
+
+function randomColor () {
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
+
+// a function to toggle the color option on and off with a mouse click
+
+const colorOptions = document.querySelector('.color-options');
+const colorBtn = document.querySelector('.color-btn');
+colorBtn.addEventListener('click', () => {
+    colorOptions.classList.toggle('hidden');
+}
+)
+
