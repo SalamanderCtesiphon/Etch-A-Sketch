@@ -1,5 +1,17 @@
+//get user input from the text input
+let input = document.querySelector('#size');
+let button = document.querySelector('#submit');
+const warning = document.querySelector('.warning');
 
-
+button.addEventListener('click', () => {
+    let size = input.value;
+    if (size > 1 && size <= 100) {
+        populateBoard(size);
+        warning.textContent = '';
+    } else {
+        warning.textContent = 'Please enter a number between 1 and 100';
+    }
+});
 
 // a method to populate the container
 function populateBoard (size) {
@@ -19,4 +31,4 @@ function populateBoard (size) {
 
 }
 
-populateBoard(16);
+
