@@ -1,13 +1,20 @@
-const displaySurface = document.querySelector('.display-surface');
 
-// //create a loop to create the divs
-const userInput = 16;
 
-function createDivs(userInput) {
-    for (let i = 0; i < (userInput**2); i++) {
-        const newDiv = document.createElement('div');
-        displaySurface.appendChild(newDiv);
+function populateBoard (size) {
+    let container = document.querySelector('.container');
+    let squares = container.querySelectorAll('div');
+    squares.forEach((div) => div.remove());
+    container.style.gridTemplateColumns = `repeat(${size} , 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size} , 1fr)`;
+
+    let amount = size * size;
+    for (let i = 0; i < amount; i++) {
+        let square = document.createElement('div');
+        square.addEventListener('mouseover', colorSquare)
+        square.style.backgroundColor = 'whitesmoke';
+        container.insertAdjacentElement('beforeend', square);
     }
+
 }
 
-createDivs(userInput);
+populateBoard(16);
