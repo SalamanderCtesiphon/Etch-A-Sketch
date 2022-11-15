@@ -25,12 +25,30 @@ function populateBoard (size) {
     let amount = size * size;
     for (let i = 0; i < amount; i++) {
         let square = document.createElement('div');
-        square.addEventListener('mouseover', colorSquare)
         square.style.backgroundColor = 'whitesmoke';
         canvas.insertAdjacentElement('beforeend', square);
     }
 
 }
+
+// add event listeners to the squares
+/* let canvas = document.querySelector('.canvas');
+canvas.addEventListener('mouseover', colorSquare); */
+
+//add an event listener to toggle the colorSquare function on and off with a mouse click
+let canvas = document.querySelector('.canvas');
+let toggle = false;
+canvas.addEventListener('mousedown', () => {
+    toggle = !toggle;
+    if (toggle) {
+        canvas.addEventListener('mouseover', colorSquare);
+    } else {
+        canvas.removeEventListener('mouseover', colorSquare);
+    }
+});
+
+
+
 
 // a function to color the squares with input from the radio buttons
 
