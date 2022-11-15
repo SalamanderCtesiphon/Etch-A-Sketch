@@ -4,10 +4,10 @@
     box-sizing: border-box;
 }
 
-.display-surface {
+.container {
     width: 60%;
     height: 60vh;
-    background-color: #000;
+    background-color: whitesmoke;
     display: grid;
-    
+
 }
