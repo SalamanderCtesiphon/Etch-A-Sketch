@@ -1,3 +1,4 @@
+
 //get user input from the text input
 let input = document.querySelector('#size');
 let button = document.querySelector('#submit');
@@ -24,11 +25,24 @@ function populateBoard (size) {
     let amount = size * size;
     for (let i = 0; i < amount; i++) {
         let square = document.createElement('div');
-        //square.addEventListener('mouseover', colorSquare)
+        square.addEventListener('mouseover', colorSquare)
         square.style.backgroundColor = 'whitesmoke';
         canvas.insertAdjacentElement('beforeend', square);
     }
 
 }
 
+// a function to color the squares with input from the radio buttons
 
+function colorSquare (e) {
+    let color = document.querySelector('input[name="color"]:checked').value;
+    if (color === 'black') {
+        e.target.style.backgroundColor = 'black';
+    } else if (color === 'shade') {
+        e.target.style.backgroundColor = shader();
+    } else if (color === 'random') {
+        e.target.style.backgroundColor = randomColor();
+    } else if (color === 'eraser') {
+        e.target.style.backgroundColor = 'whitesmoke';
+    }
+}
