@@ -1,4 +1,3 @@
-
 //get user input from the text input
 let input = document.querySelector('#size');
 let button = document.querySelector('#submit');
